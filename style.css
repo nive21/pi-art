@@ -1,20 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --controls-height: 200px;
+  --white: #ebf7f4;
+  --black: #161616;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 14px;
 }
 
 body {
-  padding-top: 20px;
-  background-color: #161616;
+  padding: 40px;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  height: 100vh;
+}
+
+#controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#info,
+#controls {
+  width: calc(100vh - var(--controls-height));
+  gap: 30px;
+}
+
+#buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+}
+
+#info {
+  color: #909090;
 }
 
 #container {
-  height: calc(100vh - 100px);
+  height: calc(100vh - var(--controls-height));
+}
+
+.btn {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  border: solid 2px var(--white);
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.selectedButton {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 @media (orientation: portrait) {
   #container {
-    height: calc(100vw - 100px);
+    height: calc(100vw - var(--controls-height));
+  }
+
+  #info,
+  #controls {
+    width: calc(100vw - var(--controls-height));
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 2860px) {
+  html {
+    font-size: 16px;
   }
 }

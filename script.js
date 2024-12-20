@@ -1,5 +1,5 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import { number } from "./const.js";
+import { pi } from "./pi.js";
 
 // Create SVG container
 const width = 999;
@@ -23,6 +23,8 @@ function display(i, x, y, prevX, prevY) {
       .attr("y2", y)
       .attr("stroke", "#e4e2ec1a") // Line color
       .attr("stroke-width", 1); // Line width
+
+    // Uncomment to show circles at each coordinate
     // svg
     //   .append("circle")
     //   .attr("cx", x)
@@ -32,22 +34,29 @@ function display(i, x, y, prevX, prevY) {
   }
 }
 
-// Start the interval to update the circles every 100ms
-let i = 6;
-let prevX = parseInt(number[0] + number[1] + number[2]);
-let prevY = parseInt(number[3] + number[4] + number[5]);
+export function updateSVG(number) {
+  svg.selectAll("*").remove(); // Clear the SVG content
 
-const interval = setInterval(() => {
-  const x = parseInt(number[i] + number[i + 1] + number[i + 2]); // First 3 digits for x-coordinate
-  const y = parseInt(number[i + 3] + number[i + 4] + number[i + 5]); // Next 3 digits for y-coordinate
+  // Start the interval to update the circles every 10ms
+  let i = 6;
+  let prevX = parseInt(number[0] + number[1] + number[2]);
+  let prevY = parseInt(number[3] + number[4] + number[5]);
 
-  display(i, x, y, prevX, prevY);
-  i += 6;
-  if (i >= number.length) clearInterval(interval);
+  const interval = setInterval(() => {
+    const x = parseInt(number[i] + number[i + 1] + number[i + 2]); // First 3 digits for x-coordinate
+    const y = parseInt(number[i + 3] + number[i + 4] + number[i + 5]); // Next 3 digits for y-coordinate
 
-  prevX = x;
-  prevY = y;
-}, 10);
+    display(i, x, y, prevX, prevY);
+    i += 6;
+    if (i >= number.length) clearInterval(interval);
 
-// Append the SVG element.
-container.append(svg.node());
+    prevX = x;
+    prevY = y;
+  }, 10);
+
+  // Append the SVG element.
+  container.append(svg.node());
+}
+
+// Initial call to updateSVG with pi
+updateSVG(pi);
