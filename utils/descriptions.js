@@ -1,6 +1,6 @@
-import { pi } from "./pi.js";
-import { euler } from "./euler.js";
-import { ratio } from "./ratio.js";
+import { pi } from "../digits/pi.js";
+import { euler } from "../digits/euler.js";
+import { ratio } from "../digits/ratio.js";
 
 export const descriptions = {
   pi: "Pi (π) is the ratio of a circle's circumference to its diameter, ≈3.14159.",

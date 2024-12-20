@@ -1,5 +1,5 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import { pi } from "./pi.js";
+import { pi } from "../digits/pi.js";
 
 // Create SVG container
 const width = 999;
@@ -21,7 +21,7 @@ function display(i, x, y, prevX, prevY) {
       .attr("y1", prevY)
       .attr("x2", x)
       .attr("y2", y)
-      .attr("stroke", "#e4e2ec1a") // Line color
+      .attr("stroke", "#e4e2ec0d") // Line color
       .attr("stroke-width", 1); // Line width
 
     // Uncomment to show circles at each coordinate
@@ -30,7 +30,7 @@ function display(i, x, y, prevX, prevY) {
     //   .attr("cx", x)
     //   .attr("cy", y)
     //   .attr("r", 1)
-    //   .attr("fill", "#e4e2ec1a");
+    //   .attr("fill", "#e4e2ec0d");
   }
 }
 
