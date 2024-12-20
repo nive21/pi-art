@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 20px;
+  background-color: #161616;
+}
+
+#container {
+  height: calc(100vh - 100px);
+}
+
+@media (orientation: portrait) {
+  #container {
+    height: calc(100vw - 100px);
+  }
+}

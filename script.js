@@ -6,8 +6,8 @@ const width = 999;
 const height = 999;
 const svg = d3
   .create("svg")
-  .attr("width", width)
-  .attr("height", height)
+  .attr("width", "100%")
+  .attr("height", "100%")
   .attr("viewBox", `0 0 ${width} ${height}`);
 
 // Function to display and update circles
@@ -21,14 +21,14 @@ function display(i, x, y, prevX, prevY) {
       .attr("y1", prevY)
       .attr("x2", x)
       .attr("y2", y)
-      .attr("stroke", "#001b421a") // Line color
+      .attr("stroke", "#e4e2ec1a") // Line color
       .attr("stroke-width", 1); // Line width
-    svg
-      .append("circle")
-      .attr("cx", x)
-      .attr("cy", y)
-      .attr("r", 1)
-      .attr("fill", "#001b421a");
+    // svg
+    //   .append("circle")
+    //   .attr("cx", x)
+    //   .attr("cy", y)
+    //   .attr("r", 1)
+    //   .attr("fill", "#e4e2ec1a");
   }
 }
 
